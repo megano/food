@@ -1,0 +1,16 @@
+
+mongoexport --db yummly --collection recipes --type=csv --fields _id,flavors,rating,totalTimeInSeconds,ingredients,smallImageUrls,sourceDisplayName,recipeName,attributes,id,imageUrlsBySize --out yumdata.csv
+
+db.recipes.find({"attributes" : {"course" : ["Soups"]}}).count()  # 161 soup recipes
+db.recipes.find({"attributes" : {"course" : ["Salads"]}}).count() # 644 salad recipes
+
+db.recipes.find({"attributes" : {"course":[["Soups"] $or: ["Salads"]]}).count()  # 161 soup recipes
+db.recipes.attributes.course.find({"Soups"}).count()
+
+db.recipes.attributes.find({"course":"Breakfast and Brunch"}).count()
+
+db.recipes.find().limit(2)
+
+db.recipes.find({"totalTimeInSeconds" : 4500}).count()
+
+db.recipes.find({"_id":ObjectId("58d47cde614c2c8301b0d608")})
