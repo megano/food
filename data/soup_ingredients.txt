@@ -1,0 +1,531 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf760
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \cb2 \expnd0\expndtw0\kerning0
+1% low-fat milk\
+2% reduced-fat milk\
+Bertolli Organic Olive Oil, Basil & Garlic Sauce\
+Bertolli\\xc2\\xae Classico Olive Oil\
+Chinese egg noodles\
+Guinness Beer\
+Italian basil\
+Italian bread\
+Maggi\
+McCormick Bay Leaves\
+McCormick Black Pepper\
+McCormick\\xc2\\xae Thyme Leaves\
+Srirach\
+Tabasco Pepper Sauce\
+acorn squash\
+aged cheddar cheese\
+all-purpose flour\
+allspice\
+almond milk\
+angel hair\
+apple cider\
+apple cider vinegar\
+apple juice\
+apples\
+arctic char\
+asparagus\
+avocado\
+baby bok choy\
+baby carrots\
+baby potatoes\
+baby spinach\
+baby spinach leaves\
+bacon\
+bacon slices\
+baguette\
+baking powder\
+balsamic vinegar\
+bananas\
+basil\
+basil leaves\
+bay leaf\
+bay leaves\
+bbq sauce\
+beansprouts\
+beef\
+beef bones\
+beef brisket\
+beef broth\
+beef shank\
+beef stew meat\
+beer\
+beets\
+bell pepper\
+black beans\
+black pepper\
+black peppercorns\
+blanched almond flour\
+boiled eggs\
+bok choy\
+boneless beef chuck\
+boneless skinless chicken breast halves\
+boneless skinless chicken breasts\
+boneless skinless chicken thighs\
+bouillon powder\
+bouquet garni\
+bread crumbs\
+broccoli\
+broccoli florets\
+broth\
+brown lentils\
+brown rice\
+brown sugar\
+browning\
+buckwheat soba noodles\
+butter\
+butter beans\
+butternut squash\
+button mushrooms\
+cabbage\
+canned tomatoes\
+cannellini beans\
+canola oil\
+caraway seeds\
+carrots\
+cashew nuts\
+cauliflower\
+cauliflower florets\
+cayenne\
+cayenne pepper\
+celery\
+celery leaves\
+celery ribs\
+cheddar cheese\
+cheese tortellini\
+cherry tomatoes\
+cherrystone clams\
+chicken\
+chicken bones\
+chicken bouillon granules\
+chicken breasts\
+chicken broth\
+chicken carcass\
+chicken fillets\
+chicken legs\
+chicken stock\
+chicken stock cubes\
+chicken wings\
+chickpeas\
+chili pepper\
+chili powder\
+chinese noodles\
+chives\
+chopped celery\
+chopped cilantro\
+chopped fresh cilantro\
+chopped fresh sage\
+chopped fresh thyme\
+chopped garli\
+chopped hazelnuts\
+chopped onion\
+chopped parsley\
+chopped tomatoes\
+chuck roast\
+chunky sals\
+cider vinegar\
+cilantro\
+cilantro leaves\
+cinnamon\
+clams\
+coconut cream\
+coconut milk\
+coconut oil\
+collard greens\
+cooked bacon\
+cooked chicken\
+cooked chicken breasts\
+cooked ham\
+cooked turkey\
+cooking fat\
+cooking oil\
+coriander powder\
+corn\
+corn starch\
+corn tortillas\
+cornmeal\
+cr\
+cracked black pepper\
+cream\
+cream cheese\
+cream of celery soup\
+cream of chicken soup\
+cream style corn\
+creamer\
+cremini\
+crimini mushrooms\
+croutons\
+crushed red pepper\
+crushed red pepper flakes\
+crushed tomatoes\
+cubed potatoes\
+cucumber\
+cumin\
+curry\
+curry paste\
+curry powder\
+dark soy sauce\
+day old bread\
+diced celery\
+diced chicken\
+diced green chilies\
+diced onions\
+diced tomatoes\
+diced tomatoes in juice\
+dijon mustard\
+dill\
+ditalini past\
+dried basil\
+dried lentils\
+dried mushrooms\
+dried navy beans\
+dried oregano\
+dried rosemary\
+dried tarragon leaves\
+dried thyme\
+dry sherry\
+dumplings\
+edamame\
+egg noodles\
+egg noodles, cooked and drained\
+egg whites\
+eggs\
+english cucumber\
+evaporated milk\
+extra virgin coconut oil\
+extra-virgin olive oil\
+farro\
+fat-free chicken broth\
+feta cheese crumbles\
+fine sea salt\
+fire roasted diced tomatoes\
+firm tofu\
+fish sauce\
+flat leaf parsley\
+flour\
+french bread\
+fresh basil\
+fresh basil leaves\
+fresh chives\
+fresh cilantro\
+fresh dill\
+fresh ginger\
+fresh ginger root\
+fresh herbs\
+fresh lemon juice\
+fresh lime juice\
+fresh mint\
+fresh mushrooms\
+fresh oregano\
+fresh parmesan cheese\
+fresh parsley\
+fresh parsley leaves\
+fresh rosemary\
+fresh shiitake mushrooms\
+fresh spinach\
+fresh thyme\
+fresh thyme leaves\
+fresh turmeri\
+fresh udon\
+freshly ground black pepper\
+freshly ground pepper\
+frozen broccoli\
+frozen corn\
+frozen corn kernels\
+frozen meatballs\
+frozen peas\
+frozen whole kernel corn\
+frozen wontons\
+garli\
+garlic cloves\
+garlic powder\
+garlic salt\
+gemelli\
+ginger\
+gluten free beef broth\
+gluten-free Worcestershire sauce\
+gluten-free flour\
+granary bread\
+granulated sugar\
+grated Gruy\\xc3\\xa8re cheese\
+grated parmesan cheese\
+grating cheese\
+great northern beans\
+greek yogurt\
+green beans\
+green bell pepper\
+green cabbage\
+green chile\
+green onions\
+green peas\
+green split peas\
+ground beef\
+ground black pepper\
+ground cardamom\
+ground cayenne pepper\
+ground cinnamon\
+ground coriander\
+ground cumin\
+ground pepper\
+ground turkey\
+ground turmeri\
+gruyere cheese\
+half & half\
+ham\
+hazelnut oil\
+heavy cream\
+heavy whipping cream\
+hoisin sauce\
+homemade chicken broth\
+homemade chicken stock\
+hot sauce\
+hot water\
+instant coffee\
+italian sausage\
+italian seasoning\
+jack\
+jack cheese\
+jalapeno chilies\
+kalamat\
+kale\
+kale leaves\
+ketchup\
+kidney beans\
+knorr reduc sodium chicken flavor bouillon cube\
+kosher salt\
+large carrots\
+large eggs\
+large garlic cloves\
+large shrimp\
+lean ground beef\
+leaves\
+leeks\
+lemon\
+lemon juice\
+lemongrass\
+lentils\
+light butter\
+light coconut milk\
+light cream\
+light soy sauce\
+lime\
+lime juice\
+lime wedges\
+low sodium beef stock\
+low sodium broth\
+low sodium chicken\
+low sodium chicken broth\
+low sodium chicken stock\
+low sodium fat free vegetable broth\
+low sodium tomato juice\
+low sodium vegetable broth\
+low-fat milk\
+low-fat sour cream\
+lower sodium chicken broth\
+maple syrup\
+marinara sauce\
+marrow bones\
+mashed potatoes\
+medium carrot\
+medium potatoes\
+melon\
+mexicorn\
+microgreens\
+milk\
+minced garli\
+minced onion\
+miso paste\
+mushrooms\
+navy beans\
+non-fat sour cream\
+nonfat greek yogurt\
+nutmeg\
+nutritional yeast\
+oil\
+old bay seasoning\
+olive oil\
+onion flakes\
+onion powder\
+onion soup mix\
+onions\
+oregano\
+organic carrots\
+orzo\
+oxtails\
+oyster sauce\
+pancett\
+paprik\
+parmesan cheese\
+parmigiano reggiano cheese\
+parsley\
+parsley flakes\
+parsnips\
+pasta sauce\
+pasta shell small\
+pasteurized process cheese spread\
+peanut butter\
+peanuts\
+pearl barley\
+pearl couscous\
+pecorino romano cheese\
+pepper\
+peppercorns\
+pie pumpkin\
+pimentos\
+plain dry bread crum\
+plain greek yogurt\
+plain yogurt\
+plum tomatoes\
+poblano\
+potatoes\
+poultry seasoning\
+pumpkin\
+pumpkin pur\\xc3\\xa9e\
+pumpkin seeds\
+purple onion\
+quino\
+ramen\
+ramen noodles\
+red bell pepper\
+red curry paste\
+red kidney beans\
+red pepper\
+red pepper flakes\
+red potato\
+red wine vinegar\
+reduced fat sharp cheddar cheese\
+reduced sodium beef broth\
+reduced sodium chicken broth\
+reduced-fat sour cream\
+rice\
+rice noodles\
+rice vermicelli\
+roast\
+roasted almonds\
+roasted peanuts\
+roasted red peppers\
+roasted tomatoes\
+roma tomatoes\
+rosemary\
+rotisserie chicken\
+rubbed sage\
+russet potatoes\
+safflower oil\
+sage\
+sals\
+salt\
+salt and ground black pepper\
+sausage casings\
+sausages\
+scallions\
+sea salt\
+seasoning\
+seasoning salt\
+sesame oil\
+shallots\
+sharp cheddar cheese\
+sherry vinegar\
+sherry wine\
+shiitake\
+shredded carrots\
+shredded cheddar cheese\
+shredded cheese\
+shredded parmesan cheese\
+shredded sharp cheddar cheese\
+shredded swiss cheese\
+shrimp\
+skim milk\
+skinless chicken breasts\
+sliced carrots\
+sliced green onions\
+sliced mushrooms\
+small past\
+small potatoes\
+small yellow onion\
+smoked ham\
+smoked ham hocks\
+smoked paprik\
+snow peas\
+so\
+sour cream\
+soy sauce\
+spaghetti\
+spanish onion\
+spinach\
+spinach leaves\
+spring onions\
+stevi\
+stew meat\
+stock\
+stout\
+sugar\
+sunset\
+swanson chicken broth\
+sweet corn\
+sweet corn kernels\
+sweet onion\
+sweet potatoes\
+table salt\
+taco seasoning\
+tart apples\
+thick-cut bacon\
+thyme\
+tofu\
+tomato juice\
+tomato paste\
+tomato sauce\
+tomato soup\
+tomatoes\
+tortilla chips\
+turkey sausage\
+turmeri\
+turmeric root\
+turnips\
+unbleached flour\
+unsalted beef stock\
+unsalted butter\
+unsalted peanut butter\
+unsweetened coconut milk\
+vegetable base\
+vegetable broth\
+vegetable oil\
+vegetable stock\
+vegetables\
+vidalia onion\
+vinegar\
+virgin olive oil\
+walnuts\
+water\
+watermelon\
+white beans\
+white cannellini beans\
+white corn\
+white miso\
+white onion\
+white pepper\
+white quino\
+white rice\
+white sugar\
+white wine\
+whole grain mustard\
+whole kernel corn\
+whole milk\
+whole wheat bread\
+whole wheat thin spaghetti\
+wild rice\
+wine\
+worcestershire sauce\
+yellow cornmeal\
+yellow food coloring\
+yellow onion\
+yoghurt\
+yukon gold potatoes\
+zucchini'}
