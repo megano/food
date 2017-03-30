@@ -25,6 +25,9 @@
 *.log
 *.sql
 *.sqlite
+*.ipynb_checkpoints
+*.komodoproject
+*.pyc
 
 # OS generated files #
 ######################
