@@ -15,7 +15,3 @@ def recipe_and_ingredient_pair_dict(filename):
         ingredients[ingredient].add(recipe)
     f.close()
     return ingredients, recipes
-
-# salad_database --> recipe_and_ingredient_pair_dict_for_course
-
-## # df[coursetype].loc[:,[["id", "name", "ingredient"]] = df[coursetype][["id", "name", "ingredient"]].values

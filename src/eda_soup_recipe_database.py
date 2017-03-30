@@ -1,4 +1,3 @@
-
 # This Python file uses the following encoding: utf-8
 import pandas as pd
 import numpy as np
@@ -7,39 +6,16 @@ from collections import Counter
 from sklearn.feature_extraction.text import CountVectorizer
 import re
 
-## Source files:
-# ttest_api2.3_42_177101_1601301.csv
-# ttest_api2.1_42_155501_177101.csv
-# ttest_api2_42_1_155501.csv
-# Use id column to find unique values. Ex: id = Lemon-Bars-Food_com-98171, name = Lemon Bars
-
-df1 = pd.read_csv('../data/ttest_api2_42_1_155501.csv', names = ["id", "name", "course", "ingredient"])
-df2 = pd.read_csv('../data/ttest_api2.1_42_155501_177101.csv', names = ["id", "name", "course", "ingredient"])
-df3 = pd.read_csv('../data/ttest_api2.3_42_177101_1601301.csv', names = ["id", "name", "course", "ingredient"])
-
-# unique_recipe_list_df1 = df1.id.unique() # unique values in the df['id'] column
-# unique_recipe_list_df2 = df2.id.unique()
-# unique_recipe_list_df3 = df3.id.unique() # List unique values in the df['id'] column
-# print len(unique_recipe_list_df3)  #  unique recipes: df1 has 236,568, df2 has 1,377,528, df3 has 177,129.
-
-# join the data frames on rows. Next df is added to bottom of previous.
-df_all = pd.concat([df1, df2, df3])
-unique_recipe_df = df_all.id.unique()
-# print len(unique_recipe_df)  # 1,405,879 unique recipes when aggregated.
+df_all = pd.read_csv('../data/all_recipes_unfiltered.csv')  # names = ["id", "name", "course", "ingredient"]
+df_all.id.nunique()    # 1,405,879 unique recipes when aggregated.
 
 # How many soup recipes?
-# Create data frame for soup courses
 soups_df_all = df_all[df_all['course'] == 'Soups']
 # print "soups_df_all header", soups_df_all.head()  # yep, it's grabbing the right rows
-# print len(soups_df_all.id.unique())  # 66,889 unique soup recipes
+# print soups_df_all.id.nunique()  # 66,889 unique soup recipes
 
-
-
-# How many salad recipes?
-# Create data frame for salad courses
-
-# CARY comments
-# get_recipes('Salads', ignore_words=['salt'...])
+# How many recipes for course X?
+# Create data frame for course X
 
 salads_df_all = df_all[df_all['course'] == 'Salads']
 # print "salads_df_all header", salads_df_all.head()  # yep, it's grabbing the right rows
@@ -132,27 +108,3 @@ print len(recipes_matching_ing_df)
 # 7019  Souper Simple Chicken Noodle Soup  Soups     onions
 
 # Butternut Squash Soup:  [onions, tomatoes, ...], The Best Minestrone Soup [onions, cilantro, ...]
-
-
-# build a dictionary of features and transform ingredient phrases to feature vectors
-# corpus = salad_ing_phrases
-# vect = CountVectorizer(analyzer='word')
-# vect_representation= map(vect.fit_transform,corpus)
-# print vect_representation.toarray()
-
-# words = salad_ing_phrases.split()               # Split into words
-# print "words", words
-# salad_ing = salad_ing_phrases.cat(sep=' ')
-# print salad_ing
-
-
-
-
-
-
-# if __name__ == '__main__':
-#     f1 = 'ttest_api2_42_1_155501.csv'
-#     f2 = 'ttest_api2.1_42_155501_177101.csv'
-#     f3 = 'ttest_api2.3_42_177101_1601301.csv'
-#     col_names = ["id", "name", "course", "ingredient"]
-#     read_csv(f1, f2, f3, col_names)
