@@ -60,8 +60,11 @@ def degrees(G):
 #     for u, v, p in preds:
 #         '(%d, %d) -> %.8f' % (u, v, p)
 
-if __name__ == '__main__':
+def do_it_all():
     coursetype = 'Desserts'
     ii_file = '../data/'+ coursetype +'_ingredient_edges.tsv'
     rr_file = '../data/'+ coursetype +'_'+ coursetype +'_edges.tsv'
     II, RR = make_graph_object(ii_file, rr_file)
+
+if __name__ == '__main__':
+    do_it_all()

@@ -1,5 +1,11 @@
 import pandas as pd
+import numpy as np
+import string
+import re
 from collections import Counter
+from load_names_ingredients_for_course import recipe_and_ingredient_pair_dict as do_ri_pair
+from make_network import do_it_all as do_network
+
 
 def read_csv(filename, col_names):
     '''
@@ -12,88 +18,105 @@ def read_csv(filename, col_names):
 
 ### clean values in ingredients list ###
 
-
-def make_course_df(df, col_names, coursetype, coursetypes):
+def make_course_dfs(df, compare_courses):
     '''
-    Takes a dataframe, column names, and string of course type.
-    Ex: course type = 'Salads'. Dataframe can have multiple course types.
-    Creates a new data frame with only recipes matching specified course type.
-    If course type given does not match, returns error message with valid course types.
+    In: Takes a dataframe, chosen course string. Ex: course chosen = 'Salads'. Source dataframe can have multiple course types.
+    Out: Creates a new data frame with only recipes matching specified course type. And an ingredient file for that course.
     '''
-    if coursetype in coursetypes:
-        # print coursetype
-        # df_coursetype = pd.DataFrame()
+    # print "compare_courses in make_course_dfs", compare_courses
+    compare_courses = compare_courses
+    for choice in compare_courses: # loops through choices in compare_courses list.
+        # print "choice in compare_courses is", choice
+        # print type(choice)
         d = {}
-        d[coursetype] = df[df['course'] == coursetype]
-        d[coursetype].drop('course', axis=1, inplace=True)
-        # df[coursetype].loc[:,[['id', 'name', 'ingredient']] = df[coursetype][['id', 'name', 'ingredient']].values
-        #List unique values. Use the df['name'] column
-        return d[coursetype]
-        # print d[coursetype].head()  # verify the db created is of the specified course type.
-    else:
-        print 'Hmm, I don\'t know that course. Try one of these: Main Dishes, Desserts, Side Dishes, Lunch and Snacks, Appetizers, Salads, Breads, Breakfast and Brunch, Soups, Beverages, Condiments and Sauces, Cocktails'
+        # print "now creating dataframe for ", choice
+        d[choice] = df[df['course'] == choice]
+        d[choice].drop({'id', 'course'}, axis=1, inplace=True)
+        # clean up values in ingredients column
+        # remove all whitespace at the start and end, lowercase, strip out non-alpha characters with regex # replace('-', ' ')
+        d[choice].ingredient = d[choice].ingredient.str.strip().str.lower().map(lambda x: re.sub(r'\W+', ' ', x))
+        # print d[choice].ingredient  # verify oreo cookies entry has no trademark
+        d[choice].name = d[choice].name.str.strip().str.lower().map(lambda x: re.sub(r'\W+', ' ', x))
+        # print d[choice].name
+        # return d[choice]
+        # df[choice].loc[:,[['id', 'name', 'ingredient']] = df[choice][['id', 'name', 'ingredient']].values
 
-def course_info(coursetype, df):
-    print coursetype
-    print df.head()
-    print df.ingredient.nunique(), " unique recipes for this course"
-    print df.ingredient.values()
-    # print "salad_ing_phrases", salad_ing_phrases
+        c = Counter(d[choice].ingredient)
+        print "counter of "+ choice + "recipe phrases", c
+        print choice + " c_most", c.most_common(200)  # most common ingredient words
+        print choice + " c_least", c.most_common()[:-20-1:-1]  # least common ingredient words
+        return d[choice], c
 
-def max_min_ingredients():
-    return
-    # c = Counter(salad_ing_phrases)
-    # print "counter on salad_ing_phrases", c
-    # c_most = c.most_common(10)  # 10 most common ingredient words
-    # print "c_most", c_most
-    # print "c_least", c.most_common()[:-10-1:-1]  # 10 least common ingredient words
+        ## Create ingredient_list.txt for the course.
+        top_200_ing = list(c.most_common(200))
+        print choice + " top 200 ingredient list", top_200_ingx
+        # top_200_ing.to_csv('top_200_ingredients_of_'+ choice +'.txt')
 
-def make_ingredient_txt():
-    ## Create ingredient_list.txt for the course.
-    return
+
+def course_info(course_chosen, df):
+    print "course info course_chosen is", course_chosen
+    print df.ingredient.nunique(), " unique ingredients in recipes for " + course_chosen
+    print df.name.nunique(), " unique recipe names for " + course_chosen
+
 
 # MAKE RECOMMENDATIONS
-def recommendations():
-    return
+# def recommendations(course_chosen, course_chosen2):
+#     return
  ## 5 recipes each for 2 courses with at least 1 common ingredient.
  # Return salad and soup recipes containing tomatoes.
 
-## Check salad recipes for at least 1 of ingredients in ingredient list.
-# recipes_matching_ing_df = salads_df_all[salads_df_all.ingredient.isin(['tomatoes', 'onions'])]
-# print recipes_matching_ing_df.head()
-# print len(recipes_matching_ing_df)
+# def common_ingredients(df_course, course_chosen, course_chosen2, counter1, counter2, ingredient1, ingredient2):
+#     '''
+#     In: Two names of courses. Two counters of ingredients for two courses.
+#     Out: Ingredients common in both courses.
+#     '''
+#     # Check recipes for at least 1 ingredients in common.
+    # recipes_match = d[choice][d[choice].ingredient.isin([ingredient1, ingredient2])]
+    # print "recipes_match", recipes_match.head()
+    # print len(recipes_match)
+
+
+
+
+# def make_network():
+#     do_ri_pair()  # makes edge files
+#     do_network()  # makes visualization
 
 
 if __name__ == '__main__':
-    coursetype = 'Desserts'
-    coursetype2 = 'Breakfast and Brunch'
+    course_chosen = 'Desserts'
+    course_chosen2 = 'Breakfast and Brunch'
+    compare_courses = ['Desserts', 'Breakfast and Brunch']
     col_headers = ['id', 'name', 'course', 'ingredient']
     filename = '../data/ttest_api2_42_1_155501.csv'
     df = read_csv(filename, col_names = col_headers)
-    coursetypes = ['Main Dishes', 'Desserts', 'Side Dishes', 'Lunch and Snacks', 'Appetizers', 'Salads', 'Breads', 'Breakfast and Brunch', 'Soups', 'Beverages', 'Condiments and Sauces', 'Cocktails']
-    df_course = make_course_df(df, col_names = col_headers, coursetype = coursetype, coursetypes = coursetypes)
-    course_info(coursetype, df_course)
-    soup_mc_ing_10_mod = ['chicken',
-     'onions',
-     'broth',
-     'oil',
-     'olive',
-     'garli',
-     'carrots',
-     'tomatoes',
-     'celery',
-     'onion',
-     'stock',
-     'butter',
-     'cheese',
-     'cream']
-     salad_mc_ing_10_mod = ['oil',
-      'olive',
-      'vinegar',
-      'lemon',
-      'onion',
-      'cheese',
-      'garlic',
-      'mayonnaise',
-      'tomatoes',
-      'mustard']
+    df_course, c = make_course_dfs(df = df, compare_courses = compare_courses)
+    course_info(course_chosen = course_chosen, df=df_course)
+
+
+    # course_options = ['Main Dishes', 'Desserts', 'Side Dishes', 'Lunch and Snacks', 'Appetizers', 'Salads', 'Breads', 'Breakfast and Brunch', 'Soups', 'Beverages', 'Condiments and Sauces', 'Cocktails']
+
+    # soup_mc_ing_10_mod = ['chicken',
+    #  'onions',
+    #  'broth',
+    #  'oil',
+    #  'olive',
+    #  'garli',
+    #  'carrots',
+    #  'tomatoes',
+    #  'celery',
+    #  'onion',
+    #  'stock',
+    #  'butter',
+    #  'cheese',
+    #  'cream']
+    #  salad_mc_ing_10_mod = ['oil',
+    #   'olive',
+    #   'vinegar',
+    #   'lemon',
+    #   'onion',
+    #   'cheese',
+    #   'garlic',
+    #   'mayonnaise',
+    #   'tomatoes',
+    #   'mustard']
