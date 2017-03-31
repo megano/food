@@ -4,11 +4,15 @@ from collections import Counter
 import matplotlib.pyplot as plt
 import make_course_edge_files as mcef
 
+
+
 # This script generalizes previous file "node_info"
 
 def make_graph_objects(ii_file, rr_file):
-    # In: recipe_and_ingredient_file
-    # Out: Graph object
+    '''
+    In: recipe_and_ingredient_file
+    Out: Graph object for ingredients that co-occur and recipes sharing ingredients.
+    '''
     II = nx.read_edgelist(ii_file, comments='#',  delimiter=',', encoding='utf-8')
     RR = nx.read_edgelist(rr_file, comments='#',  delimiter=',', encoding='utf-8')
     return II, RR
@@ -64,7 +68,7 @@ def do_it_all():
     coursetype = 'Desserts'
     ii_file = '../data/'+ coursetype +'_ingredient_edges.tsv'
     rr_file = '../data/'+ coursetype +'_'+ coursetype +'_edges.tsv'
-    II, RR = make_graph_object(ii_file, rr_file)
+    II, RR = make_graph_objects(ii_file, rr_file)
 
 if __name__ == '__main__':
     do_it_all()

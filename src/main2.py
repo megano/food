@@ -6,6 +6,45 @@ from collections import Counter
 from load_names_ingredients_for_course import recipe_and_ingredient_pair_dict as do_ri_pair
 import helper_df_maker
 
+'''
+The code below takes a raw csv of recipe data.
+It gives recommendations and stats on the relationships of ingredients within and across courses.
+
+========================================================================================
+=== EXAMPLE OUTPUT FOR DESSERTS AND BREAKFAST AND BRUNCH COURSES  ======================
+
+shared_ing are set(['butter', 'baking powder', 'vanilla extract', 'large eggs', 'flour',
+ 'eggs', 'sugar', 'water', 'vanilla', 'all purpose flour', 'unsalted butter',
+ 'brown sugar', 'baking soda', 'salt', 'milk', 'cinnamon'])
+
+                                            name       ingredient
+167  5 ingredient breakfast stuffed acorn squash             eggs
+170  5 ingredient breakfast stuffed acorn squash             salt
+216                      farmer s market granola  unsalted butter
+217                      farmer s market granola      brown sugar
+379                     avocado eggs in a basket       large eggs
+55633
+204728
+                            name   ingredient
+9   cookies and cream snack cake        flour
+10  cookies and cream snack cake        sugar
+12  cookies and cream snack cake  baking soda
+13  cookies and cream snack cake         salt
+17  cookies and cream snack cake       butter
+['5 ingredient breakfast stuffed acorn squash'
+ '5 ingredient breakfast stuffed acorn squash'
+ 'cookies and cream snack cake' 'cookies and cream snack cake']
+========================================================================================
+Created files:
+    '../data/'+ course_type + '_recipe_and_ingredients.tsv'
+    '../data/'+ course_type + '_top_ingredients.tsv'
+    Uncomment the lines to generate files
+
+Needs recipe csv file to run:
+    '../data/ttest_api2_42_1_155501.csv'
+    Has recipe name repeated for each occurance of ingredient in recipe.
+'''
+
 def read_recipe_csv(filename, col_names):
     '''
     In: CSV file name, list of column header names.
@@ -46,6 +85,9 @@ def clean_course_df(course_df_raw, course_type):
     # print choice_df.ingredient  # verify oreo cookies entry has no trademark
     choice_df.name = choice_df.name.str.strip().str.lower().map(lambda x: re.sub(r'\W+', ' ', x))
     # print choice_df
+    # create csv file for course recipes and ingredients
+    # choice_df.to_csv('../data/'+ course_type + '_recipe_and_ingredients.tsv')
+
     course_df = choice_df
     return course_df
 
@@ -75,21 +117,21 @@ def make_course_ingredient_lists(num_top_ing, course_df): #, cooking_stopwords):
     # print "course top list is", course_top_ing
     return course_top_ing # course_all_ing
 
-def compare_course_ingredients(course_top_ing_a, course_top_ing_b, num_shared):
+def compare_course_ingredients(course_top_ing_a, course_top_ing_b):
     '''
-    In: Two course ingredient sets to compare. Number of shared ingredients to check for.
+    In: Two course ingredient sets to compare.
     Out: shared_ing: List of common ingredients in those two courses.
     '''
-    # print "compare_course_ingredients@@@", course_top_ing_a
-    # print "compare_course_ingredients@@@", course_top_ing_b
-    # print num_shared
+    print "compare_course_ingredients@@@", course_top_ing_a
+    print "compare_course_ingredients@@@", course_top_ing_b
     shared_ing = course_top_ing_a.intersection(course_top_ing_b)
     print "shared_ing are", shared_ing
     return shared_ing
 
-def rec_recipes_with_shared_ingredients(shared_ing, course_df_a, course_df_b):
+
+def rec_recipes_with_shared_ingredients(shared_ing, course_df_a, course_df_b, num_recipe_names):
     '''
-    In: List of shared ingredients, dataframes of course types.
+    In: List of shared ingredients, dataframes of course types, number of recipe names to recommend.
     Out: rec_recipes: Returns a few recipe recommendations that have at least 1
     matching ingredient from X most common in both course a and b.
 
@@ -97,33 +139,39 @@ def rec_recipes_with_shared_ingredients(shared_ing, course_df_a, course_df_b):
     Looks at the recipe name value for that row.
     Makes a list of recipe names.
     '''
-        # salad_ing_phrases = salads_df_all.ingredient.unique()
-        # print "salad_ing_phrases", salad_ing_phrases
-        # c = Counter(salad_ing_phrases)
-        # print "counter on salad_ing_phrases", c
-        # c_most = c.most_common(10)  # 10 most common ingredient words
-        # print "c_most", c_most
-        # print "c_least", c.most_common()[:-10-1:-1]  # 10 least common ingredient words
+    # print "rec_recipes shared_ing", shared_ing
+    # print course_df_a.ingredient.head()
+    # print course_df_b.ingredient.head()
+    r_course_a = course_df_a[course_df_a.ingredient.isin(shared_ing)]
+    print r_course_a.head()
+    print len(r_course_a)
+    r_course_b = course_df_b[course_df_b.ingredient.isin(shared_ing)]
+    print len(r_course_b)
+    print r_course_b.head()
 
-            # recipes_matching_ing_df = salads_df_all[salads_df_all.ingredient.isin(['tomatoes', 'onions'])]
-            # print recipes_matching_ing_df.head()
-            # print len(recipes_matching_ing_df)
-    return # rec_recipes
+    # Get X recipe names from each course
+    a = r_course_a.name.values[0:num_recipe_names]
+    b = r_course_b.name.values[0:num_recipe_names]
 
-def print_rec_recipes(rec_recipes):
-    '''
-    In:
-    Out:
-    OUTPUT EXAMPLE:
-    There are 46550 soup and salad recipes sharing at least 1 ingredient in the match list.
-    Here are 6 of them: Butternut Squash Soup, The Best Minestrone Soup, ....
-
-    # ## Ex: What are course X recipes with at least 1 of 3 of most common ingredients?
+    ## Can get a different kind of rec with masking.
+    # ## Ex: What are recipes with at least 1 of 3 of most common ingredients?
     # row_mask = soups_df_all.ingredient.isin(match_lst).all(1)
     # recipes_match = coursetype_df[coursetype_df[row_mask]]
     # print "recipes with at least 1 common ingredient with match list", recipes_match.head()
     # print len(recipes_match)
-    '''
+
+    rec_recipes = []
+    rec_recipes = np.concatenate((a, b))
+    print rec_recipes
+    return rec_recipes
+
+# def print_rec_recipes(rec_recipes):
+#     '''
+#     In: Recommended recipe list.
+#     Out: We can add more text and stats for a more user friendly statement about recommendations.
+#     OUTPUT EXAMPLE:
+#     There are 46550 soup and salad recipes sharing at least 1 ingredient in the match list.
+#     Here are 6 of them: Butternut Squash Soup, The Best Minestrone Soup, ....
 
 def do_it_all(course_type):
     '''
@@ -136,18 +184,20 @@ def do_it_all(course_type):
     df_all_courses = read_recipe_csv(filename, col_names)
     course_df_raw = make_course_df(df_all_courses, course_type)
     course_df = clean_course_df(course_df_raw, course_type)
+    # # make course ingredient file
+    print "make course ingredient file @@@@@@@@"
+    # ingfilename = '../data/'+ course_type + '_ingredients.tsv'
+    course_df.ingredient.values.tofile(ingfilename,sep=',')
     course_top_ing = make_course_ingredient_lists(num_top_ing, course_df)
     # print "do it all course_top_ing !!!"
-    return course_top_ing
+    return course_top_ing, course_df
 
 if __name__ == '__main__':
-    course_type = 'Salads'
+    course_type = 'Soups'
     course_type2 = 'Desserts'
-    num_shared = 1
+    num_recipe_names = 2
     # course_type3 = 'Breakfast and Brunch'
-    course_top_ing_a = do_it_all(course_type = 'Salads')
-    course_top_ing_b = do_it_all(course_type = 'Desserts')
-    shared_ing = compare_course_ingredients(course_top_ing_a, course_top_ing_b, num_shared)
-
-    # rec_recipes = rec_recipes_with_shared_ingredients(shared_ing, course_df_a, course_df_b)
-    # print_rec_recipes(rec_recipes)
+    course_top_ing_a, course_df_a = do_it_all(course_type=course_type)
+    course_top_ing_b, course_df_b = do_it_all(course_type = course_type2)
+    shared_ing = compare_course_ingredients(course_top_ing_a, course_top_ing_b)
+    rec_recipes = rec_recipes_with_shared_ingredients(shared_ing, course_df_a, course_df_b, num_recipe_names)
