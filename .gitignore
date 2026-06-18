@@ -29,6 +29,11 @@
 *.komodoproject
 *.pyc
 
+# RecipeNLG data (research-only license, do not redistribute) #
+###############################################################
+RecipeNLG_full_dataset.csv
+recipenlg_sample.csv
+
 # OS generated files #
 ######################
 .DS_Store
