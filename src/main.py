@@ -177,9 +177,8 @@ def do_it_all(course_type):
     Out: Course top ingredients, cleaned course dataframe.
     '''
     col_names = ['id', 'name', 'course', 'ingredient']
-    # filename = '../data/all_recipes_unfiltered.csv'
-    # Smaller file for debugging
-    filename = '../data/ttest_api2_42_1_155501.csv'
+    # Generate this file from RecipeNLG with make_recipenlg_sample.py (see README).
+    filename = '../data/recipenlg_sample.csv'
     num_top_ing = 50
     df_all_courses = read_recipe_csv(filename, col_names)
     course_df_raw = make_course_df(df_all_courses, course_type)
@@ -192,7 +191,7 @@ def do_it_all(course_type):
 
 if __name__ == '__main__':
     course_type = 'Soups'
-    course_type2 = 'Cocktails'
+    course_type2 = 'Salads'
     num_recipe_names = 10
     course_top_ing_a, course_df_a = do_it_all(course_type=course_type)
     course_top_ing_b, course_df_b = do_it_all(course_type = course_type2)
