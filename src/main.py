@@ -46,8 +46,8 @@ Created files:
     Uncomment the lines to generate files
 
 Needs recipe csv file to run:
-    '../data/all_recipes_unfiltered.csv'
-    Has recipe name repeated for each occurance of ingredient in recipe.
+    '../data/recipenlg_sample.csv' (generate with make_recipenlg_sample.py)
+    Has recipe name repeated for each occurrence of ingredient in recipe.
 '''
 
 def read_recipe_csv(filename, col_names):

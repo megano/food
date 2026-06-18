@@ -9,7 +9,7 @@ suggesting dishes that share ingredients, avoiding single-item trips.
 ## How it works
 
 Pick two course types (say soups and salads). The pipeline ranks each course's
-most-connected ingredients, drops pantry staples, intersects what's left, and
+top co-occurring ingredients, drops pantry staples, intersects what's left, and
 recommends recipe pairs built on the shared ingredients, so one shopping trip
 covers both. Ingredient and recipe co-occurrence graphs are built with NetworkX.
 
